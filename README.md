@@ -10,7 +10,7 @@ Seriously, move along.
 
 Still here? Okay, fine...
 
-# Try out auto-form generation
+## Try out auto-form generation
 
 Open test.html in Firefox. (Chrome will not allow local AJAX. On a server,
 you're fine though.) Paste in a JSON schema or JSON data or both, and voila,
@@ -21,7 +21,7 @@ this was made!
 
 https://tools.ietf.org/html/draft-zyp-json-schema-03
 
-# Try out a more comprehensive example.
+## Try out a more comprehensive example.
 
 Open list.html in Firefox. (Same notes about Chrome as above.) This example
 hooks up the crud plugin to JSON services (just local JSON files for the
