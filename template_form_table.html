@@ -1,0 +1,129 @@
+<form template-type="form">
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					<span style="display:none" class="successmessage" template-tag="message-create-success">Created successfully.</span>
+					<span style="display:none" class="errormessage" template-tag="message-update-success">Updated successfully.</span>
+					<span style="display:none" class="successmessage" template-tag="message-create-error">Failed to create.</span>
+					<span style="display:none" class="errormessage" template-tag="message-update-error">Failed to update.</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table align="center">
+		<tbody template-tag="content" template-content="prepend">
+			<tr template-type="form-object">
+				<td>
+					<table align="center">
+						<tbody template-tag="content">
+							<tr template-type="form-object-property">
+								<td align="right"><label template-tag="caption">My Caption</label></td>
+								<td template-tag="content">
+									<input template-type="form-value-string" type="text" template-tag="input"></input>
+									<input template-type="form-value-boolean" type="checkbox" template-tag="input"></input>
+									<fieldset template-type="form-value-object">
+										<table>
+											<tbody template-tag="content">
+											</tbody>
+										</table>
+										<!--<div><a href="JavaScript:void(0)" template-tag="button-add">Add new property</a></div>-->
+									</fieldset>
+									<table template-type="form-value-any">
+										<tbody>
+											<tr>
+												<td template-tag="value"></td>
+												<td>
+													<select template-tag="type">
+														<option value="value-string:string">String</option>
+														<option value="value-string:number">Number</option>
+														<option value="value-boolean:boolean">Boolean</option>
+														<option value="value-object:object">Object</option>
+														<option value="value-array:array">Array</option>
+													</select>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr template-type="form-array">
+				<td>
+					<table align="center">
+						<tbody template-tag="content">
+							<tr template-type="form-array-item">
+								<td template-tag="content">
+									<fieldset template-type="form-value-array">
+										<table>
+											<tbody template-tag="content">
+											</tbody>
+										</table>
+										<div><a href="JavaScript:void(0)" template-tag="button-add">Add new item</a></div>
+									</fieldset>
+								</td><td>
+									<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>			
+			<tr>
+				<td align="center"><input type="submit" value="Save" template-tag="button-submit"></input></td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+
+<div template-type="read-form">
+	<table align="left">
+		<tbody template-tag="content">
+			<tr template-type="read-form-object">
+				<td>
+					<table align="center">
+						<tbody template-tag="content">
+							<tr template-type="read-form-object-property">
+								<td align="right"><nobr><label template-tag="caption">My Caption</label>:</nobr></td>
+								<td template-tag="content">
+									<strong template-type="read-form-value-string" type="text" template-tag="value"></strong>
+									<input template-type="read-form-value-boolean" type="checkbox" disabled="disabled" template-tag="input"></input>
+									<fieldset template-type="read-form-value-object">
+										<table>
+											<tbody template-tag="content">
+											</tbody>
+										</table>
+										<!--<div><a href="JavaScript:void(0)" template-tag="button-add">Add new property</a></div>-->
+									</fieldset>
+									<fieldset template-type="read-form-value-array">
+										<table>
+											<tbody template-tag="content">
+											</tbody>
+										</table>
+									</fieldset>
+								</td>
+							</tr>
+							<tr template-type="read-form-array-item">
+								<td colspan="2" template-tag="content">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<form template-type="search-form">
+	<table align="center">
+		<tbody template-tag="content" template-content="prepend">		
+			<tr>
+				<td align="center"><input type="submit" value="Search" template-tag="button-submit"></input></td>
+			</tr>
+		</tbody>
+	</table>
+</form>

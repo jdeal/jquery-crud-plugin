@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<script src="js/json2.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/jquery.simplate.js"></script>
+		<script src="js/jquery.dataTable.js"></script>
+		<script src="js/jquery.crud.js"></script>
+		<script src="js/jsonpath.js"></script>
+		<script>
+			$(function(){
+				$("#list-container").crud("list",{
+					data: "data/platforms.json",
+					template: "template_list.html",
+					content: function(){
+						return "Edit " + this.resourceId
+					},
+					link: function(){
+						return "edit.html?id=" + this.resourceId;
+					}
+				});
+				
+				$("#view-list-container").crud("list",{
+					data: "data/platforms.json",
+					content: function(){
+						return "View " + this.name
+					},
+					link: function(){
+						return "view.html?id=" + this.resourceId;
+					}
+				});
+
+				$("#table-container").crud("table",{
+					sort: "name",
+					data: "data/platforms.json?size=25&index=0",
+					itemName: "platform",
+					/*
+					data: function(index){
+						//console.log(index);
+						return "data/platforms.json?size=5&index=" + (index + 1);
+					},
+					modifyInput: function(){
+						return {results:this,total:100};
+					},
+					list: "results",
+					total: "total",
+					*/
+					title: "Platforms",
+					newLink: "edit.html",
+					template: "template_list.html",
+					width: "600",
+					columns: [
+						{
+							content: "name",
+							title: "Name",
+							width: "50%"
+						},
+						{
+							content: "resourceId",
+							title: "ID",
+							link: function(){
+								return "edit.html?id=" + this.resourceId
+							}
+						},
+						{
+							content: "platformType",
+							title: "Platform Type"
+						}
+					]
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<div id="list-container">
+		</div>
+		<div id="view-list-container">
+		</div>
+		<div id="table-container">
+		</div>
+		<!--<a href="edit.html">Create New Platform</a>-->
+	</body>
+</html>

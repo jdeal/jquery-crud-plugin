@@ -1,0 +1,63 @@
+<ul template-type="list">
+	<li template-type="list-item">Abc</li>
+</ul>
+
+<table template-type="table" template-type-if="options.numRows === 0">
+	<thead>
+		<tr>
+			<th> 
+				<table width="100%">
+					<tbody>
+						<td align="left" style="border:0px"><strong template-eval="this.html(options.title)"></strong></td>
+						<td align="right" style="border:0px"><button template-tag="button-new">New</button></td>
+					</tbody>
+				</table>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				No <span template-eval="this.html(options.pluralItemName)">results</span> found.
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table template-type="table" class="sorted" cellspacing="0" cellpadding="3">
+	<thead>
+		<tr>
+			<th template-eval="this.attr('colspan',options.numColumns)">
+				<table width="100%">
+					<tbody>
+						<td align="left" style="border:0px"><strong template-eval="this.html(options.title)"></strong></td>
+						<td align="right" style="border:0px"><button template-tag="button-new">New</button></td>
+					</tbody>
+				</table>
+			</th>
+		</tr>
+		<tr class="titledata" template-tag="head">
+			<th template-type="table-head-cell"><strong>Head</strong></th>
+		</tr>
+	</thead>
+	<tbody template-tag="body">
+		<tr template-type="table-body-row" class="row1">
+			<td template-type="table-body-cell"><span>Cell</span></td>
+		</tr>
+		<tr template-type="table-body-row" class="row2">
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th template-eval="this.attr('colspan',options.numColumns)">
+				<table width="100%">
+					<tbody>
+						<td align="left" style="border:0px"><button template-tag="button-previous-page">Previous</button></td>
+						<td align="right" style="border:0px"><button template-tag="button-next-page">Next</button></td>
+					</tbody>
+				</table>
+			</th>
+		</tr>
+	</tfoot>
+</table>
+

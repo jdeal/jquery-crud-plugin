@@ -1,0 +1,19 @@
+DONE - automatically do even/odd based on index
+DONE - fix view
+DONE - fix submit button
+DONE - refactor classes to attributes
+DONE - automate width option
+DONE - add width option to columns
+DONE - add arbitrary properties
+- add nullable properties
+DONE - don't allow required fields to be removed
+- reorder array items
+DONE - don't add duplicate fields
+DONE - allow dots and other characters in field names
+DONE - confirm removal of fields
+DONE - use additionalProperties = false
+DONE - 0 results found in pagination
+DONE - support textareas
+DONE - all override of add "item" text (itemName in schema)
+- expand/contract nodes
+DONE - fill in extra data that is not in schema

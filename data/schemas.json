@@ -1,0 +1,57 @@
+{
+  "http://evolve.elsevier.com/schemas/Platform#":{
+						    "properties": {
+						    	"resourceId": {
+						    		"type": "string",
+						    		"required": true
+						    	},
+						    	"type": {
+						    		"type": "string"
+						    	},
+						    	"name": {
+						    		"type": "string",
+						    		"_input": {
+						    			"size": 60
+						    		}
+						    	},
+						    	"platformType": {
+						    		"type": "string"
+						    	},
+						        "idSuffix": {
+						            "type": "string"
+						        },
+						        "bulkAccessFlag": {
+						            "type": "boolean"
+						        },
+						        "externalAccessFlag": {
+						            "type": "boolean"
+						        },
+						        "resourceAccessFlag": {
+						            "type": "boolean"
+						        },
+						        "tagIds": {
+						            "type": "array",
+						            "items": {
+						                "type": "string"
+						            }
+						        }
+						    }
+						},
+						
+	"http://evolve.elsevier.com/schemas/Search#": {
+						"type": "object",
+						"properties": {
+							"query": {
+								"type": "string",
+								"required": true,
+								"title": "",
+								"_input": {
+									"size": 100
+								}
+							},
+							"includeHardGoods": {
+								"type": "boolean"
+							}
+						}
+					}
+}

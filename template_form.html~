@@ -1,0 +1,236 @@
+<form template-type="form-object form-array form-string form-number form-integer form-boolean">
+	<div style="display:none; margin-bottom:10px" class="successmessage" template-tag="message-create-success">Created successfully.</div>
+	<div style="display:none; margin-bottom:10px" class="errormessage" template-tag="message-update-success">Updated successfully.</div>
+	<div style="display:none; margin-bottom:10px" class="successmessage" template-tag="message-create-error">Failed to create.</div>
+	<div style="display:none; margin-bottom:10px" class="errormessage" template-tag="message-update-error">Failed to update.</div>
+	<div template-tag="content" template-content="prepend">
+		<table template-type="form-property-group">
+			<tr template-type="form-property-group-item">
+				<td template-tag="content"></td>
+				<td template-tag="description"></td>
+			</tr>
+		</table>
+		<div template-type="form-property-string-enum" style="">
+			<div><label template-tag="caption">My Caption</label></div>
+			<table><tbody><tr><td>
+				<select template-tag="input">
+				</select>
+			</td><td>
+				<img src="" template-eval="this.attr('src',options.value)">
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-property-string-image-file" style="margin-bottom:10px"> 
+			<div><label template-tag="caption">My Caption</label></div>
+			<table><tbody><tr><td>
+				<input template-tag="input" type="file"></file>
+			</td><td>
+				<img src="" template-eval="this.attr('src',options.value)">
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-property-string" style="margin-bottom:10px" template-type-if="options.input.rows && options.input.rows <= 3">
+			<div><label template-tag="caption">My Caption</label></div>
+			<table><tbody><tr><td>
+				<textarea template-tag="input" cols="80" rows="3"></textarea>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-property-string" style="margin-bottom:10px" template-type-if="options.input.rows && options.input.rows > 3">
+			<div><label template-tag="caption">My Caption</label></div>
+			<table><tbody><tr><td>
+				<textarea template-tag="input" cols="80" rows="6"></textarea>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-property-string form-property-number form-property-integer" style="margin-bottom:10px" template-type-if="options.input.size && options.input.size >= 60">
+			<div><label template-tag="caption">My Caption</label></div>
+			<table><tbody><tr><td>
+				<input type="text" template-tag="input" size="60"></input>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-property-string form-property-number form-property-integer" style="margin-bottom:10px">
+			<div><label template-tag="caption">My Caption</label></div>
+			<table><tbody><tr><td>
+				<input type="text" template-tag="input"></input>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-property-boolean" style="margin-bottom:10px">
+			<table><tbody><tr><td>
+				<input type="checkbox" template-tag="input"></input>
+			</td><td>
+				<label template-tag="caption">My Caption</label>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table> 
+		</div>
+		<table template-type="form-property-object" style="margin-bottom:10px">
+			<tbody>
+				<tr>
+					<td template-tag="content">
+						<fieldset style="margin-bottom:10px">
+							<legend template-tag="caption"></legend>
+							<div template-tag="content">
+							</div>
+							<div template-tag="button-add-container"><a href="JavaScript:void(0)" template-tag="button-add">[add]</a> <span template-tag="type-name">item</span> <input type="text" template-tag="property-name"></div>
+						</fieldset>
+					</td>
+					<td template-tag="button-remove-container">
+						<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table template-type="form-property-array" style="margin-bottom:10px">
+			<tbody>
+				<tr>
+					<td template-tag="content">
+						<fieldset style="margin-bottom:10px">
+							<legend template-tag="caption"></legend>
+							<div template-tag="content">
+							</div>
+							<div template-tag="button-add-container"><a href="JavaScript:void(0)" template-tag="button-add">[add]</a> <span template-tag="type-name">item</span></div>
+						</fieldset>
+					</td>
+					<td template-tag="button-remove-container">
+						<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div template-type="form-item-string" style="margin-bottom:10px" template-type-if="options.input.rows && options.input.rows <= 3">
+			<table><tbody><tr><td>
+				<textarea template-tag="input" cols="80" rows="3"></textarea>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-item-string" style="margin-bottom:10px" template-type-if="options.input.rows && options.input.rows > 3">
+			<table><tbody><tr><td>
+				<textarea template-tag="input" cols="80" rows="6"></textarea>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-item-string form-item-number form-item-integer" style="margin-bottom:10px" template-type-if="options.input.size && options.input.size >= 60">
+			<table><tbody><tr><td>
+				<input type="text" template-tag="input"></input>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-item-string form-item-number form-item-integer" style="margin-bottom:10px">
+			<table><tbody><tr><td>
+				<input type="text" template-tag="input"></input>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<div template-type="form-item-boolean" style="margin-bottom:10px">
+			<table><tbody><tr><td>
+				<input type="checkbox" template-tag="input"></input>
+			</td><td template-tag="button-remove-container">
+				<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+			</td></tbody></table>
+		</div>
+		<table template-type="form-item-object" style="margin-bottom:10px">
+			<tbody>
+				<tr>
+					<td>
+						<fieldset>
+							<div template-tag="content"></div>
+							<div template-tag="button-add-container"><a href="JavaScript:void(0)" template-tag="button-add">[add]</a> <span template-tag="type-name">item</span> <input type="text" template-tag="property-name"></div>
+						</fieldset>
+					</td>
+					<td template-tag="button-remove-container">
+						<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table template-type="form-item-array" style="margin-bottom:10px">
+			<tbody>
+				<tr>
+					<td>
+						<fieldset>						
+							<div template-tag="content"></div>
+							<div template-tag="button-add-container"><a href="JavaScript:void(0)" template-tag="button-add">[add]</a> <span template-tag="type-name">item</span></div>
+						</fieldset>
+					</td>
+					<td template-tag="button-remove-container">
+						<a href="JavaScript:void(0)" template-tag="button-remove">[remove]</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<select template-type="form-type-select">
+			<option value="string">String</option>
+			<option value="number">Number</option>
+			<option value="boolean">Boolean</option>
+			<option value="object">Object</option>
+			<option value="array">Array</option>
+		</select>
+		<div template-tag="button-add-container"><a href="JavaScript:void(0)" template-tag="button-add">[add]</a> <span template-tag="type-name">item</span> <input type="text" template-tag="property-name"></div>
+	</div>
+	<div style="padding-top:1em">
+		<input type="submit" value="Save" template-tag="button-submit"></input>
+	</div>
+</form>
+
+<div template-type="read-form-object read-form-array read-form-string read-form-number read-form-integer read-form-boolean">
+	<table align="left">
+		<tbody template-tag="content">
+			<tr template-type="read-form-property-string read-form-property-number read-form-property-integer">
+				<td align="right"><nobr><label template-tag="caption">My Caption</label>:</nobr></td>
+				<td><strong type="text" template-tag="value"></strong></td>
+			</tr>
+			<tr template-type="read-form-property-boolean">
+				<td align="right"><nobr><label template-tag="caption">My Caption</label>:</nobr></td>
+				<td><input type="checkbox" disabled="disabled" template-tag="input"></input></td>
+			</tr>
+			<tr template-type="read-form-property-object read-form-property-array">
+				<td align="right"><nobr><label template-tag="caption">My Caption</label>:</nobr></td>
+				<td>
+					<fieldset>
+						<table>
+							<tbody template-tag="content">
+							</tbody>
+						</table>
+					</fieldset>
+				</td>
+			</tr>
+			<tr template-type="read-form-item-string read-form-item-number read-form-item-integer">
+				<td><strong type="text" template-tag="value"></strong></td>
+			</tr>
+			<tr template-type="read-form-item-boolean">
+				<td><input type="checkbox" disabled="disabled" template-tag="input"></input></td>
+			</tr>
+			<tr template-type="read-form-item-object read-form-item-array">
+				<td>
+					<fieldset template-tag="content">
+						<table>
+							<tbody template-tag="content">
+							</tbody>
+						</table>
+					</fieldset>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<form template-type="search-form-object search-form-array search-form-string search-form-number search-form-integer search-form-boolean">
+	<div template-tag="content">
+	</div>
+	<div style="padding-top:1em">
+		<input type="submit" value="Search" template-tag="button-submit"></input>
+	</div>
+</form>

@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<script src="js/json2.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/jquery.simplate.js"></script>
+		<script src="js/jquery.dform.js"></script>
+		<script src="js/dform.converters.js"></script>
+		<script src="js/dform.template.js"></script>
+		<script src="js/jquery.crud.js"></script>
+		<script src="js/jquery.parseQuery.js"></script>
+		<script>
+			var query = $.parseQuery();
+			$(function(){
+				$.crud("config",["read","update","create"],{
+					template: "template_form.html"
+				});
+				if (!('id' in query) || query['id'] === null || query['id'] === ''){
+					$("#form-container").crud("create",{
+						//template: "template_form.html",
+						data: {
+							resourceId: "",
+							type: "platform",
+							name: "",
+							platformType: "",
+							idSuffix: "",
+							bulkAccessFlag: false,
+							externalAccessFlag: false,
+							resourceAccessFlag: false,
+							tagIds: []
+						},
+						saveCreate: "data/platforms.json",
+						saveUpdate: function(prevItem){
+							return "data/platforms/" + prevItem.resourceId + ".json"
+						}
+					});
+				} else {
+					$("#form-container").crud("update",{
+						greeting: function(x,y,z){
+							return "Hello!" + this.resourceId + x + y + z;
+						},
+						//template: "template_form.html",
+						data: "data/platforms/" + query['id'] + ".json",
+						schemas: "data/schemas.json",
+						//schema: "http://evolve.elsevier.com/schemas/Platform#"/*,
+						schema: {
+						    "properties": {
+						    	"resourceId": {
+						    		"type": "string",
+						    		"required": true
+						    	},
+						    	"type": {
+						    		"type": "string"
+						    	},
+						    	"name": {
+						    		"type": "string"
+						    	},
+						    	"platformType": {
+						    		"type": "string"
+						    	},
+						        "idSuffix": {
+						            "type": "string"
+						        },
+						        "bulkAccessFlag": {
+						            "type": "boolean"
+						        },
+						        "externalAccessFlag": {
+						            "type": "boolean"
+						        },
+						        "resourceAccessFlag": {
+						            "type": "boolean"
+						        },
+								"enrollFlag": {
+									"type": "boolean"
+								}/*,
+						        "tagIds": {
+						            "type": "array",
+						            "items": {
+						                "type": "string"
+						            }
+						        }*/
+						    }
+						},
+						modifyInput: function(){
+							if ($.type(this.tagIds) === 'array' && $.inArray("enroll",this.tagIds) >= 0){
+								this.enrollFlag = true;
+							};
+						},
+						modifyOutput: function(){
+							this.tagIds = [];
+							if (this.enrollFlag){
+								this.tagIds.push("enroll");
+							}
+						},
+						saveUpdate: function(prevItem){
+							return "data/platforms/" + prevItem.resourceId + ".json"
+						}
+					});
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<div id="form-container">
+		</div>
+	</body>
+</html>

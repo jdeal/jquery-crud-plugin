@@ -1,0 +1,11 @@
+{
+    "resourceId": "angel_global",
+    "type": "platform",
+    "name": "Angel Global",
+    "platformType": "angel",
+    "idSuffix": "ag",
+    "bulkAccessFlag": false,
+    "externalAccessFlag": false,
+    "resourceAccessFlag": true,
+    "tagIds": ["enroll"]
+}

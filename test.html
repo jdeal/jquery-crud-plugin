@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script src="js/json2.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/jquery.simplate.js"></script>
+		<script src="js/jquery.dform.js"></script>
+		<script src="js/dform.converters.js"></script>
+		<script src="js/dform.template.js"></script>
+		<script src="js/jquery.crud.js"></script>
+		<script>
+			$(function(){
+				$("#build-button").click(function(){
+					var schema;
+					var schemaString = $("#input-schema-area").val();
+					if (schemaString.trim() !== ''){
+						try {
+							schema = JSON.parse(schemaString);
+						} catch (e) {
+							alert(e);
+						}
+					}
+					var data;
+					var dataString = $("#input-data-area").val();
+					if (dataString.trim() !== ''){
+						try {
+							data = JSON.parse(dataString);
+						} catch (e) {
+							alert(e);
+						}
+					}
+					$("#form-container").crud("edit",{
+						template: "template_form.html",
+						data: data,
+						schema: schema
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		Input Schema:
+		<p><textarea id="input-schema-area" cols="80" rows="10"></textarea></p>
+		Input Data
+		<p><textarea id="input-data-area" cols="80" rows="10"></textarea></p>
+		<button id="build-button">Build Form</button>
+		<p id="form-container">
+		</p>
+	</body>
+</html>

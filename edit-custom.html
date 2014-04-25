@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<script src="js/json2.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/jquery.simplate.js"></script>
+		<script src="js/jquery.dform.js"></script>
+		<script src="js/dform.converters.js"></script>
+		<script src="js/dform.template.js"></script>
+		<script src="js/jquery.crud.js"></script>
+		<script src="js/jquery.parseQuery.js"></script>
+		<script>
+			var query = $.parseQuery();
+			$(function(){
+				if (!('id' in query) || query['id'] === null || query['id'] === ''){
+					$("#custom-form").crud("create",{
+						saveCreate: "data/platforms.json",
+						saveUpdate: function(prevItem){
+							return "data/platforms/" + prevItem.resourceId + ".json"
+						},
+						success: function(mode){
+							$("#message").html(mode + ": success");
+						},
+						error: function(mode){
+							$("#message").html(mode + ": failed");
+						}
+					});
+				} else {
+					$("#custom-form").crud("edit",{
+						data: "data/platforms/" + query['id'] + ".json",
+						load: function(){
+							$("#resourceId").val(this.resourceId);
+						},
+						saveUpdate: function(prevItem){
+							return "data/platforms/" + prevItem.resourceId + ".json"
+						},
+						success: function(mode){
+							$("#message").html(mode + ": success");
+						},
+						error: function(mode){
+							$("#message").html(mode + ": failed");
+						}
+					});
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<div id="form-container">
+		</div>
+		<form id="custom-form">
+			<div id="message"></div>
+			<div><label>Resource ID</label></div>
+			<div><input id="resourceId" name="resourceId" type="text"/></div>
+			<div><input type="submit" value="Save"/></div>
+		</form>
+	</body>
+</html>

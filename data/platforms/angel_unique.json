@@ -1,0 +1,10 @@
+{
+    "resourceId": "angel_unique",
+    "type": "platform",
+    "name": "Angel Unique",
+    "platformType": "angel",
+    "idSuffix": "au",
+    "bulkAccessFlag": true,
+    "externalAccessFlag": false,
+    "resourceAccessFlag": true
+}

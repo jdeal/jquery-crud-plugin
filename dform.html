@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.dform.js"></script>
+		<script src="js/jquery.crud.js"></script>
+		<script>
+		
+			/*
+			var formdata =
+			{
+			    "action" : "index.html",
+			    "method" : "get",
+			    "elements" :
+			    [
+			        {
+			            "name" : "textfield",
+			            "label" : "Label for textfield",
+			            "type" : "text",
+			            "value" : "Hello world"
+			        },
+			        {
+			            "type" : "submit",
+			            "value" : "Submit"
+			        }
+			    ]
+			};
+			
+			$(function(){
+				$("#myform").buildForm(formdata);
+			})			
+			*/
+			/*
+			$(function(){
+				$.dform.addType("hellobutton", function(options) {
+				    // Return a new button element that has all options that
+				    // don't have a registered subscriber as attributes
+				    return $("<button>").dformAttr(options).html("Say hello");
+				 });
+				
+				$.dform.subscribe("alert", function(options, type) {
+				    if(type == "hellobutton")
+				    {
+				        this.click(function() {
+				            alert(options);
+				        });
+				    }
+				 });
+				
+				// Use it like this
+				$("#myform").buildForm(
+				{
+				    "type" : "hellobutton",
+				    "alert" : "Hello world!"
+				});
+			});
+			*/
+			
+			
+			
+			$(function(){
+				$.dform.addType("list", function(options) {
+					var listContainer = $("<div>");
+				    var button = $("<a href='#'>");
+				    button.html("Add").click(function(){
+				    	listContainer.buildForm({"elements":options.listElements});    	
+				    });
+				    listContainer.append(button);
+				    return listContainer;
+				 });
+				 /*
+				
+				$.dform.subscribe("alert", function(options, type) {
+				    if(type == "hellobutton")
+				    {
+				        this.click(function() {
+				            alert(options);
+				        });
+				    }
+				 });
+				
+				// Use it like this
+				$("#myform").buildForm(
+				{
+				    "type" : "list",
+				    "items" : {
+				    	"label": "Greeting",
+				    	"type": "text"
+				    }
+				});
+				*/
+				
+				$("#myform").buildForm({
+					"elements":[
+						{"type":"text","caption":"Greeting"},
+						{"type":"list",
+							"listElements":[{"type":"text","caption":"Junk"}]
+						}
+					]
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="myform">
+		</div>
+	</body>
+</html>

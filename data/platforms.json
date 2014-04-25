@@ -1,0 +1,74 @@
+[
+    {
+        "resourceId": "angel_global",
+        "type": "platform",
+        "name": "Bangel Global",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_unique",
+        "type": "platform",
+        "name": "Bangel Unique",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_global",
+        "type": "platform",
+        "name": "Angel Global",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_unique",
+        "type": "platform",
+        "name": "Angel Unique",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_global",
+        "type": "platform",
+        "name": "",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_unique",
+        "type": "platform",
+        "name": "xngel Unique",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_global",
+        "type": "platform",
+        "name": "rrr",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_global",
+        "type": "platform",
+        "name": "111",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_global",
+        "type": "platform",
+        "name": "bangel Global",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_unique",
+        "type": "platform",
+        "name": "bangel Unique",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_global",
+        "type": "platform",
+        "name": "angel Global",
+        "platformType": "angel"
+    },
+    {
+        "resourceId": "angel_unique",
+        "type": "platform",
+        "name": "angel Unique",
+        "platformType": "angel"
+    }
+]

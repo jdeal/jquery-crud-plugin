@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<script src="js/json2.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/jquery.simplate.js"></script>
+		<script src="js/jquery.dform.js"></script>
+		<script src="js/dform.converters.js"></script>
+		<script src="js/dform.template.js"></script>
+		<script src="js/jquery.crud.js"></script>
+		<script>
+		$(function(){
+			$.crud("config",["search","read","update","create"],{
+				template: "template_form.html",
+				schemas: "data/schemas.json"
+			});
+			$("#form-container").crud("search",
+				{
+					schema: {
+						extends: {
+							"$ref": "http://evolve.elsevier.com/schemas/Search#"
+						}
+					},
+					submit: function(){
+						$("#list-container").crud("table",{
+							template: "template_list.html",
+							data: "data/platforms.json?query=" + this.query/*,
+							columns: [
+								{
+									content: "name",
+									title: "Name"
+								},
+								{
+									content: "resourceId",
+									title: "ID",
+									link: function(){
+										return "edit.html?id=" + this.resourceId
+									}
+								},
+								{
+									content: "platformType",
+									title: "Platform Type"
+								}
+							]*/
+						});
+					}
+				}
+			);
+		});
+		</script>
+	</head>
+	<body>
+		<div id="form-container">
+			<form>
+				<input type="text" name="x" id="x">
+			</form>
+		</div>
+		<div id="list-container">
+		</div>
+	</body>
+</html>

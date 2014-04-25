@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<script src="js/json2.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/jquery.simplate.js"></script>
+		<script src="js/jquery.dform.js"></script>
+		<script src="js/dform.converters.js"></script>
+		<script src="js/dform.template.js"></script>
+		<script src="js/jquery.crud.js"></script>
+		<script src="js/jquery.parseQuery.js"></script>
+		<script>
+			var query = $.parseQuery();
+			$(function(){
+				$("#item-container").crud("view",{
+					template: "template_form.html",
+					schema: {
+						"properties": {
+							"resourceId": {
+								"type": "string",
+								"required": true
+							},
+							"type": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"platformType": {
+								"type": "string"
+							},
+							"idSuffix": {
+								"type": "string"
+							},
+							"bulkAccessFlag": {
+								"type": "boolean"
+							},
+							"externalAccessFlag": {
+								"type": "boolean"
+							},
+							"resourceAccessFlag": {
+								"type": "boolean"
+							},
+							"tagIds": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					data: "data/platforms/" + query['id'] + ".json",
+					saveUpdate: function(prevItem){
+						return "data/platforms/" + prevItem.resourceId + ".json"
+					},
+					load: function(){
+						$("#title").html(this.name);
+					}
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<h1 id="title"></h1>
+	
+		<div id="item-container">
+		</div>
+		
+		<form id="test-form">
+		</form>
+		
+		<div id="form-container">
+		</div>
+	</body>
+</html>

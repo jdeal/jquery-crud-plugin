@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<script src="js/json2.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/jquery.simplate.js"></script>
+		<script src="js/jquery.dform.js"></script>
+		<script src="js/dform.converters.js"></script>
+		<script src="js/dform.template.js"></script>
+		<script src="js/jquery.crud.js"></script>
+		<script>
+			$(function(){
+				$("#form-container").crud("search",{
+					schema: {
+						type: "object",
+						properties: {
+							query: {
+								title: "",
+								type: "string",
+								_input: {
+									size: 100
+								}
+							},
+							includeHardGoods: {
+								title: "Include Hard Goods",
+								type: "boolean"
+							}
+						}
+					},
+					template: "template_form.html",/*
+					form: {
+						action: "list.html"
+					},*/
+					submit: function(){
+						$("#table-container").crud("table",{
+							sort: "name",
+							data: "data/platforms.json",
+							title: "Platforms",
+							newLink: "edit.html",
+							template: "template_list.html",
+							columns: [
+								{
+									content: "name",
+									title: "Name"
+								},
+								{
+									content: "resourceId",
+									title: "ID",
+									link: function(){
+										return "edit.html?id=" + this.resourceId
+									}
+								},
+								{
+									content: "platformType",
+									title: "Platform Type"
+								}
+							]
+						});
+					}
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<div id="form-container">
+		</div>
+		<div id="table-container">
+		</div>
+	</body>
+</html>
